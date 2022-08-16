@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group 'com.deca7777'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    maven { url 'https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc' }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    compileOnly 'org.spigotmc:spigot-api:1.18-R0.1-SNAPSHOT'
+    runtimeOnly 'org.xerial:sqlite-jdbc:3.39.2.0'
+}
+
+test {
+    useJUnitPlatform()
+}

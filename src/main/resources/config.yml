@@ -1,0 +1,2 @@
+sendMessageOnJoin: true
+#If this is enabled, UBP sends player the status about their blockprotection.
