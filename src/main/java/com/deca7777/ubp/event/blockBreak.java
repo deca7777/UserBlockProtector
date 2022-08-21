@@ -19,28 +19,26 @@ public class blockBreak implements Listener {
     public void onBlockBreak(BlockBreakEvent event){
         Player player = event.getPlayer();
         Block block = event.getBlock();
-        if(SQL.CheckEDStatus(player)){
-            try{
-                Statement stmt1 = c.createStatement();
-                ResultSet rs = stmt1.executeQuery("SELECT UUID FROM BLOCK WHERE X="+block.getX()+" AND Y="+block.getY()+" AND Z="+block.getZ()+" AND WORLD = \""+player.getWorld().getName()+"\"");
-                if(rs.isClosed()){
+        try{
+            Statement stmt1 = c.createStatement();
+            ResultSet rs = stmt1.executeQuery("SELECT UUID FROM BLOCK WHERE X="+block.getX()+" AND Y="+block.getY()+" AND Z="+block.getZ()+" AND WORLD = \""+player.getWorld().getName()+"\"");
+            if(rs.isClosed()){
 
-                }
-                else if(!rs.getString("UUID").equals(player.getUniqueId().toString()) && !player.isOp()){
-                    player.sendMessage("You can not break this block.");
-                    event.setCancelled(true);
-                }
-                else if(!rs.getString("UUID").equals(player.getUniqueId().toString()) && player.isOp()){
-                    player.sendMessage("You bypassed the protection.");
-                    c.createStatement().executeUpdate("DELETE FROM BLOCK WHERE X="+block.getX()+" AND Y="+block.getY()+" AND Z="+block.getZ());
-                }
-                else{
-                    c.createStatement().executeUpdate("DELETE FROM BLOCK WHERE X="+block.getX()+" AND Y="+block.getY()+" AND Z="+block.getZ());
-                }
-                stmt1.close();
-            }catch(Exception e){
-                e.printStackTrace();
             }
+            else if(!rs.getString("UUID").equals(player.getUniqueId().toString()) && !player.isOp()){
+                player.sendMessage("You can not break this block.");
+                event.setCancelled(true);
+            }
+            else if(!rs.getString("UUID").equals(player.getUniqueId().toString()) && player.isOp()){
+                player.sendMessage("You bypassed the protection.");
+                c.createStatement().executeUpdate("DELETE FROM BLOCK WHERE X="+block.getX()+" AND Y="+block.getY()+" AND Z="+block.getZ());
+            }
+            else{
+                c.createStatement().executeUpdate("DELETE FROM BLOCK WHERE X="+block.getX()+" AND Y="+block.getY()+" AND Z="+block.getZ());
+            }
+            stmt1.close();
+        }catch(Exception e){
+            e.printStackTrace();
         }
     }
 }
