@@ -1,13 +1,16 @@
 main: com.deca7777.ubp.main
 name: UserBlockProtector
-version: 1.0.0-SNAPSHOT
+version: 1.0.0
 description: This plugin protects block user placed. (Like OwnBlocks)
 author: deca7777
+database: true
+
 
 commands:
   bp:
     description: Enable/Disable their blockprotect.
     aliases:
       - blockprotector
-    permission: blockprotector.blockprotector
+    permission: UserBlockProtector.Protection
+    permission-message: "\u00A74I'm sorry, but you do not have permission to perform this command. Please contact server administrators if you believe that this is in error."
     usage: /<command>

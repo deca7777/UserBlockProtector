@@ -1,0 +1,11 @@
+prefix: "[&aUBP&r]"
+
+#[BLOCKOWNER] : username of block owner
+motd:
+  enabled: "Your BlockProtector has been enabled."
+  disabled: "Your BlockProtector has been disabled."
+
+enabled: "Your BlockProtector has been enabled."
+disabled: "Your BlockProtector has been disabled."
+bypass-message: "You have bypassed the protection of [BLOCKOWNER]"
+cannot-break: "You can not bypass the protection of [BLOCKOWNER]"

@@ -1,2 +1,17 @@
 sendMessageOnJoin: true
 #If this is enabled, UBP sends player the status about their blockprotection.
+
+#default value of protection
+protection:
+  destruction: true
+  explosion: true
+  ignition: true
+  #interaction: false
+    #piston:
+    #default: false
+  #sticky: false
+  #redstone: false
+
+
+#data type: double
+cannot-break-message-interval: 1.0 #seconds
