@@ -16,7 +16,7 @@ public class UBPlayer {
             this.BrokenTime = LocalTime.now().getSecond();
             return true;
         }
-        if(main.config.getDouble("cannot-break-message-interval") <= LocalTime.now().getSecond() - BrokenTime && !BrokenBlock.equals(b)) {
+        if(main.config.getDouble("cannot-break-message-interval") <= LocalTime.now().getSecond() - BrokenTime || !BrokenBlock.equals(b)) {
             this.BrokenBlock = b;
             this.BrokenTime = LocalTime.now().getSecond();
             return true;
