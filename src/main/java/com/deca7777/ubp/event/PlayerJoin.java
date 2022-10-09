@@ -45,6 +45,6 @@ public class PlayerJoin implements Listener {
             exception.printStackTrace();
         }
         if(config.getBoolean("sendMessageOnJoin"))
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&',messages.getString(ub.UBPEnabled ? "enabled" : "disabled")));
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&',messages.getString("prefix")+" "+messages.getString(ub.UBPEnabled ? "enabled" : "disabled")));
     }
 }

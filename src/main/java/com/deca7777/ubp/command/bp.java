@@ -20,7 +20,7 @@ public class bp implements CommandExecutor {
         assert ub != null;
         ub.UBPEnabled = !ub.UBPEnabled;
         playerList.set(playerList.indexOf(ubo), ub);
-        player.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.getString(ub.UBPEnabled ? "motd.enabled" : "motd.disabled")));
+        player.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.getString("prefix")+" "+messages.getString(ub.UBPEnabled ? "motd.enabled" : "motd.disabled")));
         return true;
     }
 }

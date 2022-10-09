@@ -27,7 +27,7 @@ public class blockBreak implements Listener {
                 if(getUBPlayer(player).ShouldSendMessage(block)) {
                     //mysql rs = stmt.executeQuery("SELECT USERNAME FROM BLOCK WHERE X=" + block.getX() + " AND Y=" + block.getY() + " AND Z=" + block.getZ() + " AND WORLD = CONVERT(CHAR(16),\"" + block.getWorld().getName() + "\")");
                     ResultSet rs1 = stmt.executeQuery("SELECT USERNAME FROM BLOCK WHERE X=" + block.getX() + " AND Y=" + block.getY() + " AND Z=" + block.getZ() + " AND WORLD = \"" + block.getWorld().getName() + "\"");
-                    player.sendMessage(ChatColor.translateAlternateColorCodes('&',messages.getString("cannot-break").replaceAll("\\[BLOCKOWNER\\]",rs1.getString("username"))));
+                    player.sendMessage(ChatColor.translateAlternateColorCodes('&',messages.getString("prefix")+" "+messages.getString("cannot-break").replaceAll("\\[BLOCKOWNER\\]",rs1.getString("username"))));
                 }
                 event.setCancelled(true);
             }
@@ -38,7 +38,7 @@ public class blockBreak implements Listener {
                 if(getUBPlayer(player).ShouldSendMessage(block)) {
                     //mysql rs = stmt.executeQuery("SELECT USERNAME FROM BLOCK WHERE X=" + block.getX() + " AND Y=" + block.getY() + " AND Z=" + block.getZ() + " AND WORLD = CONVERT(CHAR(16),\"" + block.getWorld().getName() + "\")");
                     ResultSet rs1 = stmt.executeQuery("SELECT USERNAME FROM BLOCK WHERE X=" + block.getX() + " AND Y=" + block.getY() + " AND Z=" + block.getZ() + " AND WORLD = \"" + block.getWorld().getName() + "\"");
-                    player.sendMessage(ChatColor.translateAlternateColorCodes('&',messages.getString("bypass-message").replaceAll("\\[BLOCKOWNER\\]",rs1.getString("username"))));
+                    player.sendMessage(ChatColor.translateAlternateColorCodes('&',messages.getString("prefix")+" "+messages.getString("bypass-message").replaceAll("\\[BLOCKOWNER\\]",rs1.getString("username"))));
                 }
                 c.createStatement().executeUpdate("DELETE FROM BLOCK WHERE X="+block.getX()+" AND Y="+block.getY()+" AND Z="+block.getZ());
             }
